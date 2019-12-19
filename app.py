@@ -27,7 +27,7 @@ def study_image():
       {
         "data": {
           "image": {
-            "url": "image_url"
+            "url": image_url
           }
         }
       }
@@ -36,9 +36,10 @@ def study_image():
 # putting everything together; sending the request!
     response = requests.post(api_url, headers=headers, data=json.dumps(data))
     response_dict=json.loads(response.content)
+    response_img=type(response_dict)
 
 
-    return render_template('home.html', results=response_dict)
+    return render_template('home.html', results=response_img)
 
 if __name__ == '__main__':
     app.run(debug=True)
